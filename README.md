@@ -1,43 +1,46 @@
 # Person Detection Using YOLO with IPC (C & Python)
 
+
 ## 1. Assignment Description
 
-This assignment implements a **person detection system** using the YOLO algorithm executed in a **C program**. The detection results (bounding box coordinates and confidence values) are shared between processes using **POSIX shared memory (IPC)**. A **Python program** accesses this shared memory and visualizes the detection results on the original image using OpenCV.
+This project implements a **person detection system** using the **YOLO (You Only Look Once)** algorithm.  
+The detection is performed in a **C program**, and the detection output (bounding box coordinates + confidence score) is shared using **POSIX Shared Memory (IPC)**.
 
-The assignment demonstrates:
-- YOLO inference in C
-- Inter-Process Communication using shared memory
-- Data exchange between C and Python
-- Separation of computation and visualization
+A separate **Python program** reads the shared memory data and visualizes the detected persons by drawing **bounding boxes** on the image using **OpenCV**.
+
+This assignment demonstrates:
+- YOLO inference using C
+- Inter-Process Communication (IPC) using POSIX shared memory
+- Data sharing between C and Python programs
+- Separation of detection and visualization modules
 
 ---
 
+
 ## 2. System Overview
 
+### Components
+
 - **C Program (`yolo_ipc.c`)**  
-  Performs person detection using a pretrained YOLO model and writes detection results into shared memory.
+  Runs YOLO person detection and writes results to shared memory.
 
 - **Python Program (`visualize.py`)**  
-  Reads detection results from shared memory and visualizes them by drawing bounding boxes on the input image.
+  Reads detection results from shared memory and visualizes them on the input image.
 
-- **IPC Mechanism**  
-  POSIX shared memory is used to share detection data through RAM.
+- **IPC Mechanism (POSIX Shared Memory)**  
+  Shared memory is used for fast communication between processes.
 
 ---
 
 ## 3. Environment Setup
 
-### 3.1 Windows Subsystem for Linux (WSL)
+### 3.1 Install WSL (Windows Subsystem for Linux)
 
-1. Open PowerShell as Administrator.
+1. Open **PowerShell as Administrator**
 2. Install Ubuntu:
+
    ```bash
    wsl --install -d Ubuntu
-   ```
-3. Restart the system when prompted.
-4. Open Ubuntu and complete the initial setup.
-
----
 
 ### 3.2 Install Required Packages in WSL
 
@@ -177,4 +180,5 @@ Images can be stored in a separate folder (e.g., `images/`) and referenced in th
 
 ## 8. Conclusion
 
-This assignment successfully demonstrates person detection using YOLO in a C environment and efficient data sharing using POSIX shared memory. The separation of detection and visualization through IPC highlights a modular and effective system design.
+This assignment successfully demonstrates person detection using YOLO in C and efficient communication using POSIX shared memory (IPC).
+The detection and visualization are separated into two programs, making the system modular, clear, and effective.
