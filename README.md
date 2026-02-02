@@ -1,5 +1,10 @@
-# Person Detection Using YOLO with IPC (C & Python)
+Here is your **corrected GitHub README.md** with **all image names changed to `.jpeg`** and also fixed the **broken Markdown code block** in the WSL section ✅
+(Just copy & paste directly into GitHub)
 
+---
+
+````md
+# Person Detection Using YOLO with IPC (C & Python)
 
 ## 1. Assignment Description
 
@@ -15,7 +20,6 @@ This assignment demonstrates:
 - Separation of detection and visualization modules
 
 ---
-
 
 ## 2. System Overview
 
@@ -39,8 +43,14 @@ This assignment demonstrates:
 1. Open **PowerShell as Administrator**
 2. Install Ubuntu:
 
-   ```bash
-   wsl --install -d Ubuntu
+```bash
+wsl --install -d Ubuntu
+````
+
+3. Restart the system if needed
+4. Open Ubuntu and complete the setup
+
+---
 
 ### 3.2 Install Required Packages in WSL
 
@@ -55,46 +65,47 @@ sudo apt install build-essential python3 python3-opencv -y
 
 1. Clone Darknet:
 
-   ```bash
-   git clone https://github.com/AlexeyAB/darknet.git
-   cd darknet
-   ```
+```bash
+git clone https://github.com/AlexeyAB/darknet.git
+cd darknet
+```
 
 2. Edit `Makefile` and set:
 
-   ```
-   GPU=0
-   OPENCV=0
-   LIBSO=1
-   ```
+```txt
+GPU=0
+OPENCV=0
+LIBSO=1
+```
 
 3. Build Darknet as a shared library:
 
-   ```bash
-   make clean
-   make
-   ```
+```bash
+make clean
+make
+```
 
 4. Download YOLOv4-tiny model files:
 
-   ```bash
-   wget https://github.com/AlexeyAB/darknet/releases/download/yolov4/yolov4-tiny.weights
-   wget https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/yolov4-tiny.cfg
-   wget https://raw.githubusercontent.com/AlexeyAB/darknet/master/data/coco.names
-   ```
+```bash
+wget https://github.com/AlexeyAB/darknet/releases/download/yolov4/yolov4-tiny.weights
+wget https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/yolov4-tiny.cfg
+wget https://raw.githubusercontent.com/AlexeyAB/darknet/master/data/coco.names
+```
 
 ---
 
 ## 4. Files in This Assignment
 
-```
+```txt
 darknet/
 │
-├── yolo_ipc.c        # C program for YOLO person detection + IPC
-├── visualize.py      # Python program for IPC reading and visualization
+├── yolo_ipc.c            # C program for YOLO person detection + IPC
+├── visualize.py          # Python program for IPC reading and visualization
 ├── yolov4-tiny.cfg
 ├── yolov4-tiny.weights
-├── person.jpg        # Input image
+├── coco.names
+├── person.jpeg           # Input image
 ```
 
 ---
@@ -123,12 +134,12 @@ export LD_LIBRARY_PATH=.
 ### Step 2: Run the C Program (YOLO + IPC Writer)
 
 ```bash
-./yolo_ipc person.jpg
+./yolo_ipc person.jpeg
 ```
 
 Expected output:
 
-```
+```txt
 Detections written to shared memory. Count = X
 ```
 
@@ -142,37 +153,41 @@ python3 visualize.py
 
 Expected output:
 
-```
+```txt
 Detections read from shared memory: X
-Output saved as ipc_output.jpg
+Output saved as ipc_output.jpeg
 Shared memory cleaned
 ```
 
-The output image `ipc_output.jpg` will be generated with bounding boxes around detected persons.
+The output image `ipc_output.jpeg` will be generated with bounding boxes around detected persons.
 
 ---
 
 ## 6. Output
 
-- `ipc_output.jpg`  
+* `ipc_output.jpeg`
   Image showing detected person(s) with bounding boxes and confidence values.
 
 ---
 
-  ### Input Image
-  ![Input Image](/person.jpg)
+### Input Image
 
-  ### Output After YOLO Detection
-  ![Detected Persons](/ipc_output.jpg)
+![Input Image](person.jpeg)
+
+### Output After YOLO Detection
+
+![Detected Persons](ipc_output.jpeg)
+
+---
 
 ## 7. Adding Images to the Report
 
 For documentation or report purposes, the following images can be included:
 
-- Input image (`person.jpg`)
-- Output image (`ipc_output.jpg`)
-- System architecture or block diagram
-- Shared memory workflow diagram
+* Input image (`person.jpeg`)
+* Output image (`ipc_output.jpeg`)
+* System architecture or block diagram
+* Shared memory workflow diagram
 
 Images can be stored in a separate folder (e.g., `images/`) and referenced in the report.
 
@@ -182,3 +197,8 @@ Images can be stored in a separate folder (e.g., `images/`) and referenced in th
 
 This assignment successfully demonstrates person detection using YOLO in C and efficient communication using POSIX shared memory (IPC).
 The detection and visualization are separated into two programs, making the system modular, clear, and effective.
+
+```
+
+
+
